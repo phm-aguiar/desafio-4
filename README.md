@@ -101,7 +101,7 @@ cientistas, alunos e professores.
 ## Contribuidores
 
 * [Pedro Henrique](https://github.com/phm-aguiar)
-*
+* [Matheus Cavalcante](https://github.com/MatheusHSCavalcante)
 *
 *
 *
