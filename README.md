@@ -102,7 +102,7 @@ cientistas, alunos e professores.
 
 * [Pedro Henrique](https://github.com/phm-aguiar)
 * [Matheus Cavalcante](https://github.com/MatheusHSCavalcante)
-*
+* [Wallace Pablo](https://github.com/PabloJ4)
 *
 *
 *
