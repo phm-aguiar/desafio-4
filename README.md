@@ -50,22 +50,30 @@ cientistas, alunos e professores.
 /projeto-ciencia-colaborativa
 │
 ├── /frontend
-│   ├── /assets
-│   ├── /css
-│   ├── /js
-│   ├── index.html
-│   └── cadastro.html
+│   ├── /...
+│   ├── /...
+│   ├── /...
+│   ├── ...
+│   └── ...
 │
 ├── /backend
-│   ├── /controllers
-│   ├── /models
-│   ├── /routes
-│   ├── app.js
-│   └── database.js
+│   ├── /...
+│   ├── /...
+│   ├── /...
+│   ├── ...
+│   └── ...
 │
-├── /database
-│   ├── schema.sql
-│   └── seed.sql
+├── /games
+│   ├── ...
+│   └── ...
+│
+├── /ux-design
+│   ├── ...
+│   └── ...
+│
+├── /dados
+│   ├── ...
+│   └── ...
 │
 └── README.md
 
@@ -93,6 +101,25 @@ cientistas, alunos e professores.
 ## Contribuidores
 
 * [Pedro Henrique](https://github.com/phm-aguiar)
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
 
 ## Licença
 
