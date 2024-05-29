@@ -1,2 +1,101 @@
-# desafio-4
-Desafio do projeto inova Maranhão
+# Desafio de Ciência Colaborativa
+## visão geral
+
+Este projeto tem como objetivo criar um jogo que facilite a conexão entre cientistas, alunos e 
+professores. Além do jogo, será desenvolvida uma landing page para o cadastro de novos jogadores.
+Esses jogadores serão registrados em um banco de dados, e o jogo verificará se o jogador logado
+está devidamente cadastrado.
+
+## Objetivos
+
+1. Jogo Interativo: Desenvolver um jogo que represente soluções para facilitar a conexão entre
+cientistas, alunos e professores.
+2. Landing Page: Criar uma landing page para o cadastro de novos usuários.
+3. Banco de Dados: Armazenar os dados dos usuários cadastrados.
+4. Autenticação de Usuários: Implementar uma verificação no jogo para garantir que apenas usuários cadastrados possam jogar.
+
+## Funcionalidades
+### Jogo
+
+* Personagens: Personagens representando cientistas, alunos e professores.
+* Cenários: Diversos cenários onde as interações entre os personagens ocorrem.
+* Mecânicas: Mecânicas de jogo que promovem a colaboração e a solução de problemas entre os personagens.
+
+### Landing Page
+
+* Formulário de Cadastro: Formulário para novos usuários se cadastrarem.
+* Integração com Banco de Dados: Salvamento dos dados dos usuários no banco de dados.
+* Design Atraente: Interface amigável e atraente para incentivar novos cadastros.
+
+### Banco de Dados
+
+* Armazenamento de Dados: Banco de dados para armazenar os dados dos usuários.
+* Simplificação de Consultas: Consultas simples e eficientes para verificar a existência de um usuário.
+
+### Autenticação de Usuários
+
+* Login de Usuários: Sistema de login para verificar se o usuário está cadastrado.
+* Acesso Restrito: Acesso ao jogo restrito a usuários cadastrados.
+
+## Tecnologias Utilizadas
+
+* front-end: 
+* back-end:
+* banco de dados:
+* autenticação:
+
+## Estrutura do Projeto
+
+```bash
+/projeto-ciencia-colaborativa
+│
+├── /frontend
+│   ├── /assets
+│   ├── /css
+│   ├── /js
+│   ├── index.html
+│   └── cadastro.html
+│
+├── /backend
+│   ├── /controllers
+│   ├── /models
+│   ├── /routes
+│   ├── app.js
+│   └── database.js
+│
+├── /database
+│   ├── schema.sql
+│   └── seed.sql
+│
+└── README.md
+
+```
+
+## Instruções de Instalação
+
+### pré-requisitos
+
+* 
+*
+*
+
+### Passos para a configuração
+
+#### 1. clonar o repositório
+
+```bash
+	git clone git@github.com:phm-aguiar/desafio-4.git
+```
+
+#### 2. ....
+
+
+## Contribuidores
+
+* [Pedro Henrique](https://github.com/phm-aguiar)
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
+
+
