@@ -103,13 +103,13 @@ cientistas, alunos e professores.
 * [Pedro Henrique](https://github.com/phm-aguiar)
 * [Matheus Cavalcante](https://github.com/MatheusHSCavalcante)
 * [Wallace Pablo](https://github.com/PabloJ4)
-*
-*
-*
-*
-*
-*
-*
+* [Antonio Mesquita](https://github.com/antonio-mesquita)
+* [Carlos Gabriel](https://github.com/CarlosGabriel007)
+* [Gabriel Costa](https://github.com/eubielzin)
+* [Igor Diogo](https://github.com/igordiogo2022)
+* [Melissa Palhano](https://github.com/melpalhano)
+* [Ana Júlia](https://github.com/najuliag)
+* [Wallace Pablo](https://github.com/PabloJ4)
 *
 *
 *
