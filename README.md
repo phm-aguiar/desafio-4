@@ -13,6 +13,7 @@ cientistas, alunos e professores.
 2. Landing Page: Criar uma landing page para o cadastro de novos usuários.
 3. Banco de Dados: Armazenar os dados dos usuários cadastrados.
 4. Autenticação de Usuários: Implementar uma verificação no jogo para garantir que apenas usuários cadastrados possam jogar.
+5. Dashboard: Criar o ambiente e mapear as tecnologias para geração de dashboard com os resultados coletados durante o cadastro de usuários;
 
 ## Funcionalidades
 ### Jogo
@@ -32,6 +33,13 @@ cientistas, alunos e professores.
 * Armazenamento de Dados: Banco de dados para armazenar os dados dos usuários.
 * Simplificação de Consultas: Consultas simples e eficientes para verificar a existência de um usuário.
 
+### Dashboard
+
+* Criação de Views: Tabelas virtuais com informações de interesse do banco de dados.
+* Inserção de dados: Utilização do ChatGPT para criar usuários fictícios para inserir no banco de dados.
+* Integração com o Looker: Integrar as tabelas virtuais do banco com o Looker Studio.
+* Dashboard com o Looker: Dashboard com análise dos dados coletados.
+  
 ### Autenticação de Usuários
 
 * Login de Usuários: Sistema de login para verificar se o usuário está cadastrado.
@@ -42,6 +50,11 @@ cientistas, alunos e professores.
 * front-end: 
 * back-end:
 * banco de dados:
+	* MySQL
+* dashboard:
+	* MySQL
+ 	* Looker Studio
+	* ChatGPT  
 * autenticação:
 
 ## Estrutura do Projeto
@@ -110,7 +123,7 @@ cientistas, alunos e professores.
 * [Melissa Palhano](https://github.com/melpalhano)
 * [Ana Júlia](https://github.com/najuliag)
 * [Wallace Pablo](https://github.com/PabloJ4)
-*
+* [Eduardo Nascimento](https://github.com/dudursn)
 *
 *
 *
