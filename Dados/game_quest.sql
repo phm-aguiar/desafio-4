@@ -257,12 +257,54 @@ SELECT
   r.texto AS resposta_texto,
   r.correta AS resposta_correta,
   ur.data_resposta,
-  pt.pontuacao,
-  pt.data AS data_pontuacao
+  pt.pontuacao
 FROM usuario u
 LEFT JOIN usuario_login ul ON u.id = ul.usuario_id
 LEFT JOIN usuario_resposta ur ON u.id = ur.usuario_id
 LEFT JOIN pergunta p ON ur.pergunta_id = p.id
 LEFT JOIN resposta r ON ur.resposta_id = r.id
 LEFT JOIN tema t ON p.tema_id = t.id
-LEFT JOIN pontuacao pt ON u.id = pt.usuario_id AND t.id = pt.tema_id;
+LEFT JOIN pontuacao pt ON p.id = pt.pergunta_id;
+
+
+-- View `view_usuario_login`
+CREATE VIEW `view_usuario_login` AS
+SELECT 
+  u.id AS usuario_id,
+  u.nome AS usuario_nome,
+  u.email AS usuario_email,
+  u.estado AS usuario_estado,
+  u.cidade AS usuario_cidade,
+  u.curso AS usuario_curso,
+  u.instituicao_ensino AS usuario_instituicao_ensino,
+  u.tipo_usuario AS usuario_tipo,
+  ul.data_acesso
+FROM usuario u
+LEFT JOIN usuario_login ul ON u.id = ul.usuario_id;
+
+-- View `view_usuario_pontuacao`
+CREATE VIEW `view_usuario_pontuacao` AS
+SELECT 
+  u.id AS usuario_id,
+  u.nome AS usuario_nome,
+  u.email AS usuario_email,
+  u.estado AS usuario_estado,
+  u.cidade AS usuario_cidade,
+  u.curso AS usuario_curso,
+  u.instituicao_ensino AS usuario_instituicao_ensino,
+  u.tipo_usuario AS usuario_tipo,
+  t.id AS tema_id,
+  t.nome AS tema_nome,
+  p.id AS pergunta_id,
+  p.texto AS pergunta_texto,
+  r.id AS resposta_id,
+  r.texto AS resposta_texto,
+  r.correta AS resposta_correta,
+  ur.data_resposta,
+  pt.pontuacao
+FROM usuario u
+LEFT JOIN usuario_resposta ur ON u.id = ur.usuario_id
+LEFT JOIN pergunta p ON ur.pergunta_id = p.id
+LEFT JOIN resposta r ON ur.resposta_id = r.id
+LEFT JOIN tema t ON p.tema_id = t.id
+LEFT JOIN pontuacao pt ON p.id = pt.pergunta_id;
