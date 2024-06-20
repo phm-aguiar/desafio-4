@@ -224,37 +224,17 @@ INSERT INTO `usuario_resposta` (`usuario_id`, `pergunta_id`, `resposta_id`, `dat
 -- Tabela `pontuacao`
 CREATE TABLE `pontuacao` (
   `id` INT AUTO_INCREMENT NOT NULL,
-  `usuario_id` INT NOT NULL,
-  `tema_id` INT NOT NULL,
+  `pergunta_id` INT NOT NULL,
   `pontuacao` INT NOT NULL,
-  `data` DATETIME NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `usuario_id_fk` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `tema_id_fk` FOREIGN KEY (`tema_id`) REFERENCES `tema` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `pontuacao_pergunta_id_fk` FOREIGN KEY (`pergunta_id`) REFERENCES `pergunta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 );
 
-INSERT INTO `pontuacao` (`usuario_id`, `tema_id`, `pontuacao`, `data`) VALUES
-(1, 1, 10, '2024-06-07 08:30:00'),
-(2, 2, 10, '2024-06-07 09:30:00'),
-(3, 3, 10, '2024-06-07 10:30:00'),
-(4, 4, 10, '2024-06-07 11:30:00'),
-(5, 1, 10, '2024-06-07 12:30:00'),
-(6, 2, 10, '2024-06-07 13:30:00'),
-(7, 3, 10, '2024-06-07 14:30:00'),
-(8, 4, 10, '2024-06-07 15:30:00'),
-(9, 1, 10, '2024-06-07 16:30:00'),
-(10, 2, 10, '2024-06-07 17:30:00'),
-(11, 3, 10, '2024-06-07 18:30:00'),
-(12, 4, 10, '2024-06-07 19:30:00'),
-(13, 1, 10, '2024-06-07 20:30:00'),
-(14, 2, 10, '2024-06-07 21:30:00'),
-(15, 3, 10, '2024-06-07 22:30:00'),
-(16, 4, 10, '2024-06-07 23:30:00'),
-(17, 1, 10, '2024-06-08 08:30:00'),
-(18, 2, 10, '2024-06-08 09:30:00'),
-(19, 3, 10, '2024-06-08 10:30:00'),
-(20, 4, 10, '2024-06-08 11:30:00');
-
+INSERT INTO `pontuacao` (`pergunta_id`, `pontuacao`, `data`) VALUES
+(1, 10, '2024-06-07 08:30:00'),
+(2, 10, '2024-06-07 09:30:00'),
+(3, 15, '2024-06-07 10:30:00'),
+(4, 10, '2024-06-07 11:30:00');
 
 // Views
 -- View `analise_game_quest`
