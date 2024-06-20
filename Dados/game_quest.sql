@@ -127,3 +127,22 @@ INSERT INTO `usuario_login` (`usuario_id`, `data_acesso`) VALUES
 (16, '2024-06-11 17:00:00'),
 (16, '2024-06-12 18:00:00'),
 (16, '2024-06-13 19:00:00');
+
+
+CREATE VIEW `view_usuario_login` AS
+select
+  `u`.`id` AS `id`,
+  `u`.`nome` AS `nome`,
+  `u`.`email` AS `email`,
+  `u`.`senha` AS `senha`,
+  `u`.`estado` AS `estado`,
+  `u`.`cidade` AS `cidade`,
+  `u`.`curso` AS `curso`,
+  `u`.`instituicao_ensino` AS `instituicao_ensino`,
+  `u`.`tipo_usuario` AS `tipo_usuario`,
+  `ul`.`data_acesso` AS `data_acesso`
+from
+  `usuario` `u`
+  join `usuario_login` `ul`
+where
+  (`u`.`id` = `ul`.`usuario_id`)
