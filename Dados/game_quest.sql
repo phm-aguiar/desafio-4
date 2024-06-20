@@ -171,15 +171,20 @@ INSERT INTO `resposta` (`pergunta_id`, `texto`, `correta`) VALUES
 (1, 'Estuda a sociedade e as relações humanas.', TRUE),
 (1, 'Estuda fenômenos naturais.', FALSE),
 (1, 'Estuda a estrutura da matéria.', FALSE),
+(1, 'Estuda o comportamento dos animais.', FALSE),
 (2, 'Oxigênio', FALSE),
 (2, 'Nitrogênio', TRUE),
 (2, 'Hidrogênio', FALSE),
+(2, 'Carbono', FALSE),
 (3, '3', FALSE),
 (3, '4', TRUE),
 (3, '5', FALSE),
+(3, '6', FALSE),
 (4, 'Comunicação entre indivíduos.', TRUE),
 (4, 'Estudo das reações químicas.', FALSE),
-(4, 'Desenvolvimento de softwares.', FALSE);
+(4, 'Desenvolvimento de softwares.', FALSE),
+(4, 'Análise de dados.', FALSE);
+
 
 -- Tabela `usuario_resposta`
 CREATE TABLE `usuario_resposta` (
@@ -199,7 +204,7 @@ INSERT INTO `usuario_resposta` (`usuario_id`, `pergunta_id`, `resposta_id`, `dat
 (2, 2, 5, '2024-06-07 09:00:00'),
 (3, 3, 8, '2024-06-07 10:00:00'),
 (4, 4, 10, '2024-06-07 11:00:00'),
-(5, 1, 2, '2024-06-07 12:00:00'),
+(5, 1, 1, '2024-06-07 12:00:00'),
 (6, 2, 5, '2024-06-07 13:00:00'),
 (7, 3, 8, '2024-06-07 14:00:00'),
 (8, 4, 10, '2024-06-07 15:00:00'),
@@ -233,7 +238,7 @@ INSERT INTO `pontuacao` (`usuario_id`, `tema_id`, `pontuacao`, `data`) VALUES
 (2, 2, 10, '2024-06-07 09:30:00'),
 (3, 3, 10, '2024-06-07 10:30:00'),
 (4, 4, 10, '2024-06-07 11:30:00'),
-(5, 1, 0, '2024-06-07 12:30:00'),
+(5, 1, 10, '2024-06-07 12:30:00'),
 (6, 2, 10, '2024-06-07 13:30:00'),
 (7, 3, 10, '2024-06-07 14:30:00'),
 (8, 4, 10, '2024-06-07 15:30:00'),
@@ -252,20 +257,32 @@ INSERT INTO `pontuacao` (`usuario_id`, `tema_id`, `pontuacao`, `data`) VALUES
 
 
 // Views
-CREATE VIEW `view_usuario_login` AS
-select
-  `u`.`id` AS `id`,
-  `u`.`nome` AS `nome`,
-  `u`.`email` AS `email`,
-  `u`.`senha` AS `senha`,
-  `u`.`estado` AS `estado`,
-  `u`.`cidade` AS `cidade`,
-  `u`.`curso` AS `curso`,
-  `u`.`instituicao_ensino` AS `instituicao_ensino`,
-  `u`.`tipo_usuario` AS `tipo_usuario`,
-  `ul`.`data_acesso` AS `data_acesso`
-from
-  `usuario` `u`
-  join `usuario_login` `ul`
-where
-  (`u`.`id` = `ul`.`usuario_id`)
+-- View `analise_game_quest`
+CREATE VIEW `analise_game_quest` AS
+SELECT 
+  u.id AS usuario_id,
+  u.nome AS usuario_nome,
+  u.email AS usuario_email,
+  u.estado AS usuario_estado,
+  u.cidade AS usuario_cidade,
+  u.curso AS usuario_curso,
+  u.instituicao_ensino AS usuario_instituicao_ensino,
+  u.tipo_usuario AS usuario_tipo,
+  ul.data_acesso,
+  t.id AS tema_id,
+  t.nome AS tema_nome,
+  p.id AS pergunta_id,
+  p.texto AS pergunta_texto,
+  r.id AS resposta_id,
+  r.texto AS resposta_texto,
+  r.correta AS resposta_correta,
+  ur.data_resposta,
+  pt.pontuacao,
+  pt.data AS data_pontuacao
+FROM usuario u
+LEFT JOIN usuario_login ul ON u.id = ul.usuario_id
+LEFT JOIN usuario_resposta ur ON u.id = ur.usuario_id
+LEFT JOIN pergunta p ON ur.pergunta_id = p.id
+LEFT JOIN resposta r ON ur.resposta_id = r.id
+LEFT JOIN tema t ON p.tema_id = t.id
+LEFT JOIN pontuacao pt ON u.id = pt.usuario_id AND t.id = pt.tema_id;
