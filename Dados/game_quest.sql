@@ -1,3 +1,4 @@
+-- Tabela `usuario`
 CREATE TABLE `usuario` ( 
   `id` INT AUTO_INCREMENT NOT NULL,
   `nome` VARCHAR(250) NOT NULL,
@@ -47,6 +48,7 @@ ON `usuario_login` (
   `usuario_id` ASC
 );
 
+-- Tabela `usuario_login`
 INSERT INTO `usuario_login` (`usuario_id`, `data_acesso`) VALUES
 (1, '2024-06-07 08:00:00'),
 (1, '2024-06-08 09:00:00'),
@@ -128,7 +130,128 @@ INSERT INTO `usuario_login` (`usuario_id`, `data_acesso`) VALUES
 (16, '2024-06-12 18:00:00'),
 (16, '2024-06-13 19:00:00');
 
+-- Tabela `tema`
+CREATE TABLE `tema` ( 
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `nome` VARCHAR(250) NOT NULL,
+   PRIMARY KEY (`id`)
+);
 
+INSERT INTO `tema` (`nome`) VALUES ('Ciências Humanas'),
+    ('Ciências da Natureza'),
+    ('Ciências Exatas'),
+    ('Linguagens e Códigos');
+
+-- Tabela `pergunta`
+CREATE TABLE `pergunta` (
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `tema_id` INT NOT NULL,
+  `texto` TEXT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `tema_id_fk` FOREIGN KEY (`tema_id`) REFERENCES `tema` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+INSERT INTO `pergunta` (`tema_id`, `texto`) VALUES
+(1, 'Qual é a principal característica das Ciências Humanas?'),
+(2, 'Qual é o elemento mais abundante na atmosfera?'),
+(3, 'Quanto é 2 + 2?'),
+(4, 'Qual é a principal função da linguagem?');
+
+-- Tabela `resposta`
+CREATE TABLE `resposta` (
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `pergunta_id` INT NOT NULL,
+  `texto` TEXT NOT NULL,
+  `correta` BOOLEAN NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `pergunta_id_fk` FOREIGN KEY (`pergunta_id`) REFERENCES `pergunta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+INSERT INTO `resposta` (`pergunta_id`, `texto`, `correta`) VALUES
+(1, 'Estuda a sociedade e as relações humanas.', TRUE),
+(1, 'Estuda fenômenos naturais.', FALSE),
+(1, 'Estuda a estrutura da matéria.', FALSE),
+(2, 'Oxigênio', FALSE),
+(2, 'Nitrogênio', TRUE),
+(2, 'Hidrogênio', FALSE),
+(3, '3', FALSE),
+(3, '4', TRUE),
+(3, '5', FALSE),
+(4, 'Comunicação entre indivíduos.', TRUE),
+(4, 'Estudo das reações químicas.', FALSE),
+(4, 'Desenvolvimento de softwares.', FALSE);
+
+-- Tabela `usuario_resposta`
+CREATE TABLE `usuario_resposta` (
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `usuario_id` INT NOT NULL,
+  `pergunta_id` INT NOT NULL,
+  `resposta_id` INT NOT NULL,
+  `data_resposta` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `usuario_id_fk` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `pergunta_id_fk` FOREIGN KEY (`pergunta_id`) REFERENCES `pergunta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `resposta_id_fk` FOREIGN KEY (`resposta_id`) REFERENCES `resposta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+INSERT INTO `usuario_resposta` (`usuario_id`, `pergunta_id`, `resposta_id`, `data_resposta`) VALUES
+(1, 1, 1, '2024-06-07 08:00:00'),
+(2, 2, 5, '2024-06-07 09:00:00'),
+(3, 3, 8, '2024-06-07 10:00:00'),
+(4, 4, 10, '2024-06-07 11:00:00'),
+(5, 1, 2, '2024-06-07 12:00:00'),
+(6, 2, 5, '2024-06-07 13:00:00'),
+(7, 3, 8, '2024-06-07 14:00:00'),
+(8, 4, 10, '2024-06-07 15:00:00'),
+(9, 1, 1, '2024-06-07 16:00:00'),
+(10, 2, 5, '2024-06-07 17:00:00'),
+(11, 3, 8, '2024-06-07 18:00:00'),
+(12, 4, 10, '2024-06-07 19:00:00'),
+(13, 1, 1, '2024-06-07 20:00:00'),
+(14, 2, 5, '2024-06-07 21:00:00'),
+(15, 3, 8, '2024-06-07 22:00:00'),
+(16, 4, 10, '2024-06-07 23:00:00'),
+(17, 1, 1, '2024-06-08 08:00:00'),
+(18, 2, 5, '2024-06-08 09:00:00'),
+(19, 3, 8, '2024-06-08 10:00:00'),
+(20, 4, 10, '2024-06-08 11:00:00');
+
+-- Tabela `pontuacao`
+CREATE TABLE `pontuacao` (
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `usuario_id` INT NOT NULL,
+  `tema_id` INT NOT NULL,
+  `pontuacao` INT NOT NULL,
+  `data` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `usuario_id_fk` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `tema_id_fk` FOREIGN KEY (`tema_id`) REFERENCES `tema` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+INSERT INTO `pontuacao` (`usuario_id`, `tema_id`, `pontuacao`, `data`) VALUES
+(1, 1, 10, '2024-06-07 08:30:00'),
+(2, 2, 10, '2024-06-07 09:30:00'),
+(3, 3, 10, '2024-06-07 10:30:00'),
+(4, 4, 10, '2024-06-07 11:30:00'),
+(5, 1, 0, '2024-06-07 12:30:00'),
+(6, 2, 10, '2024-06-07 13:30:00'),
+(7, 3, 10, '2024-06-07 14:30:00'),
+(8, 4, 10, '2024-06-07 15:30:00'),
+(9, 1, 10, '2024-06-07 16:30:00'),
+(10, 2, 10, '2024-06-07 17:30:00'),
+(11, 3, 10, '2024-06-07 18:30:00'),
+(12, 4, 10, '2024-06-07 19:30:00'),
+(13, 1, 10, '2024-06-07 20:30:00'),
+(14, 2, 10, '2024-06-07 21:30:00'),
+(15, 3, 10, '2024-06-07 22:30:00'),
+(16, 4, 10, '2024-06-07 23:30:00'),
+(17, 1, 10, '2024-06-08 08:30:00'),
+(18, 2, 10, '2024-06-08 09:30:00'),
+(19, 3, 10, '2024-06-08 10:30:00'),
+(20, 4, 10, '2024-06-08 11:30:00');
+
+
+// Views
 CREATE VIEW `view_usuario_login` AS
 select
   `u`.`id` AS `id`,
