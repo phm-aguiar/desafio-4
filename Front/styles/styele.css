@@ -1,0 +1,130 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&family=Vast+Shadow&display=swap');
+
+*{
+    box-sizing: border-box;
+
+}
+
+body{
+    margin:0;
+    padding:0;
+    background-color: black;
+    color:white;
+    background-image:url(/images/bckg-inicio.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+}
+
+.cabecalho{
+    padding:2% 0 5% 0;
+    opacity:0;
+    transform: translateX(-100%); /* Move o header 100% para a esquerda */
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.cabecalho.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cabecalho__menu{
+    display:flex;
+    flex-direction:row;
+    padding-left:10%;
+    justify-content:space-between;
+}
+.cabecalho__menu__lista{
+    display:flex;
+    list-style:none;
+}
+.cabecalho__menu__lista__links{
+    margin-left:120px;
+}
+.texto__links{
+    text-decoration:none;
+    font-size:2.2em;
+    color:#FFF;
+    font-family: "Urbanist", sans-serif;
+}
+.conteudo {
+   padding:5% 0 0 20%;
+   display:flex;
+   justify-content:flex-start;
+   align-items:center;
+   margin-bottom:10%;
+}
+.conteudo__texto{
+    width:500px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+.conteudo__texto.visible{
+    opacity: 1;
+    transform: translateX(0);
+}
+.conteudo__texto__titulo{
+    font-size:3.5em;
+    font-family: "Vast Shadow", serif;
+    
+}
+.conteudo__texto__subtitulo{
+    margin-left:-55px;
+    font-size:1em;
+    line-height:30px;
+    font-family: "Vast Shadow", serif;
+}
+.botao{
+    margin-top:30px;
+    margin-left:-310px;
+    width:300px;
+    height:40px;
+    border-radius:10px;
+    padding:10px;
+    background-color:#00f7ff;
+    background-image: linear-gradient(to bottom, #211dd1, #6b500f);
+}
+.text_button {
+    font-size:1.5em;
+    text-decoration:none;
+    color:#FFF;
+}
+.rodape{
+    padding:1% 0 1% 0 ;
+    background-color:#5A72A0;
+    transform: translateX(-100%); /* Move o header 100% para a esquerda */
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+.rodape.visible{
+    opacity:1;
+    transform: translateX(0);
+}
+.rodape__contato{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    margin-left:450px;
+    line-height:1px;
+}
+.text__contatos{
+    font-family: "Urbanist", sans-serif;
+    font-size:1.3em;
+}
+.rodape__termos{
+    width:900px;
+    margin-left:450px;
+    display:flex;
+    justify-content:space-between;
+}
+.text__termos{
+    font-family: "Urbanist", sans-serif;
+    font-size:1.3em;
+}

@@ -1,0 +1,25 @@
+.content{
+    padding:0% 0 0 18%;
+    display:flex;
+    justify-content:flex-start;
+}
+.content__text{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    width:500px;
+}
+.content__text__title{
+    font-family: "Urbanist", sans-serif;
+    font-size:3.5em;
+}
+.mixed {
+    font-family: "Vast Shadow", serif;
+    text-decoration:none;
+}
+.content__text__subtitle{
+    font-family: "Urbanist", sans-serif;
+    font-size:1.25em;
+    line-height:30px;
+}
