@@ -47,8 +47,12 @@ cientistas, alunos e professores.
 
 ## Tecnologias Utilizadas
 
-* front-end: 
+* front-end:
+	* HTML
+ 	* CSS
+  	* Javascript	
 * back-end:
+	* NodeJS
 * banco de dados:
 	* MySQL
 * dashboard:
