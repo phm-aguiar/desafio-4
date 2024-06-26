@@ -128,8 +128,8 @@ cientistas, alunos e professores.
 * [Ana Júlia](https://github.com/najuliag)
 * [Wallace Pablo](https://github.com/PabloJ4)
 * [Eduardo Nascimento](https://github.com/dudursn)
-*
-*
+  
+*[Erla Indyra Teles](https://github.com/Erla32)
 *
 *
 *
