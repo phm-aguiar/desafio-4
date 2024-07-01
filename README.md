@@ -130,7 +130,7 @@ cientistas, alunos e professores.
 * [Eduardo Nascimento](https://github.com/dudursn)
   
 *[Erla Indyra Teles](https://github.com/Erla32)
-*
+*[Vinicius André Almeida Pereira] (https://github.com/viniciusandrre)
 *
 *
 *
